@@ -1,0 +1,342 @@
+/* ========================
+   Root Variables (Blue Header Theme)
+======================== */
+:root {
+  --primary-color: #333;
+  --accent-color: #2563eb;          /* Blue buttons */
+  --header-bg: #ffffff;             /* White header background */
+  --header-text: #111827;           /* Dark header text */
+  --header-icon: #2563eb;           /* Optional icon color */
+  --hover-bg: rgba(0, 0, 0, 0.05);
+  --hover-bg-light: rgba(37, 99, 235, 0.1);
+  --menu-height: 60px;
+  --padding-base: 1rem;
+  --padding-sm: 0.5rem;
+  --radius-sm: 6px;
+  --box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  --transition-base: 0.2s ease;
+  --text-on-blue: #ffffff;
+  --text-on-white: #374151;
+}
+
+/* ========================
+   Budget Menu Header
+======================== */
+.budget-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--header-bg);
+  color: var(--header-text);
+  padding: var(--padding-base) 1.5rem;
+  min-height: var(--menu-height);
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.1);
+  border: none;
+}
+
+.title-section {
+  flex-grow: 1;
+  flex-shrink: 0;
+  margin-right: var(--padding-base);
+  display: flex;
+  justify-content: center;
+}
+
+.header-title {
+  margin: 0;
+  padding: 0;
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--header-text);
+  white-space: nowrap;
+  letter-spacing: 0.025em;
+  text-align: center;
+  width: 100%;
+}
+
+.button-bar {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
+  gap: 16px;
+  flex: 1;
+}
+
+/* ========================
+   Menu Buttons (Primary & Three-dot)
+======================== */
+.menu-button,
+.three-dot-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-color);
+  color: var(--text-on-blue);
+  border: 2px solid #d1d5db;
+  padding: 16px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  min-height: 80px;
+  min-width: 80px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  font-size: 11px;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.menu-button {
+  flex-direction: column;
+}
+
+.menu-button:hover,
+.three-dot-button:hover {
+  background: #f9fafb;
+  color: var(--accent-color);
+  border-color: #9ca3af;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.menu-button:active,
+.three-dot-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.menu-button:focus,
+.three-dot-button:focus {
+  outline: 2px solid rgba(66, 153, 225, 0.5);
+  outline-offset: 2px;
+}
+
+.button-icon {
+  font-size: 24px;
+  color: var(--text-on-blue);
+}
+
+.menu-button:hover .button-icon,
+.three-dot-button:hover i {
+  color: var(--accent-color);
+}
+
+.button-label {
+  font-weight: 600;
+}
+
+/* ========================
+   Overflow Menu & Items
+======================== */
+.overflow-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: var(--header-bg);
+  border-radius: 12px;
+  box-shadow: var(--box-shadow);
+  z-index: 1000;
+  overflow: visible;
+  animation: slideDown var(--transition-base);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 8px;
+}
+
+.overflow-menu-content {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  padding: 0; /* Reset if needed */
+}
+
+.overflow-menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 4px;
+  background: transparent;
+  border: none;
+  color: #6b7280;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  text-align: center;
+  border-radius: 8px;
+  gap: 2px;
+}
+
+.overflow-menu-item:hover {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.overflow-menu-item i {
+  font-size: 16px;
+  margin-bottom: 2px;
+  color: inherit;
+  fill: inherit;
+}
+
+.overflow-menu-item span {
+  font-size: 9px;
+  font-weight: 500;
+  text-transform: uppercase;
+  max-width: 44px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: inherit;
+}
+
+/* Backdrop for overflow menu */
+.overflow-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  background: transparent;
+}
+
+/* ========================
+   Box Header Theme Override
+======================== */
+.box-header,
+.card-header,
+.panel-header,
+.section-header {
+  background-color: var(--header-bg) !important;
+  color: var(--header-text) !important;
+  border: none !important;
+  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.1) !important;
+}
+
+.box-header *,
+.card-header *,
+.panel-header *,
+.section-header * {
+  color: var(--header-text) !important;
+  fill: var(--header-text) !important;
+}
+
+.box-header button,
+.card-header button,
+.panel-header button,
+.section-header button {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: var(--header-text) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.box-header button:hover,
+.card-header button:hover,
+.panel-header button:hover,
+.section-header button:hover {
+  background: rgba(255, 255, 255, 0.25) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* ========================
+   Animations
+======================== */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================
+   Responsive Adjustments
+======================== */
+@media (max-width: 768px) {
+  .budget-menu {
+    padding: 0.75rem 1rem;
+    min-height: 56px;
+    justify-content: center;
+  }
+
+  .header-title {
+    font-size: 1.75rem;
+    font-weight: 400;
+  }
+
+  .menu-button,
+  .three-dot-button {
+    padding: 12px 8px;
+    font-size: 10px;
+    min-height: 70px;
+    min-width: 70px;
+  }
+
+  .button-bar {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .budget-menu {
+    padding: 0.625rem 0.875rem;
+    min-height: 52px;
+    justify-content: center;
+  }
+
+  .header-title {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  .menu-button,
+  .three-dot-button {
+    padding: 10px 6px;
+    font-size: 9px;
+    min-height: 60px;
+    min-width: 60px;
+  }
+
+  .overflow-menu {
+    right: 0;
+    left: 0;
+  }
+
+  .overflow-menu-content {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .overflow-menu-item {
+    width: 52px;
+    height: 52px;
+  }
+
+  .overflow-menu-item i {
+    font-size: 18px;
+  }
+
+  .overflow-menu-item span {
+    font-size: 10px;
+  }
+}
+
+/* ========================
+   Universal transition for smoother UI
+======================== */
+.budget-menu * {
+  transition: all var(--transition-base);
+}
